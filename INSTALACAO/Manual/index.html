@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<!-- saved from url=(0109)index.html -->
+<html class="js no-touch gumby-no-touch webp translated-ltr" style=""><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+        <title>PHP ao Vivo via Chat - Tutorial</title>
+
+        <link rel="stylesheet" type="text/css" href="./index_files/gumby.css">
+        <link rel="stylesheet" type="text/css" href="./index_files/style.css">
+
+        <script type="text/javascript" src="./index_files/jquery.min.js"></script>
+        <script type="text/javascript" src="./index_files/modernizr-2.6.2.min.js"></script>
+        <script type="text/javascript" src="./index_files/jquery.highlight.js"></script>
+        <script type="text/javascript" src="./index_files/gumby.min.js"></script>
+        <script type="text/javascript">
+            jQuery(function($)
+            {
+                $('.skip').click(function()
+                {
+                    $($(this).attr('gumby-goto')).highlight();
+                });
+            });
+        </script>
+        
+        <style type="text/css">
+            span.label
+            {
+                height: auto;
+            }
+        </style>
+    <link type="text/css" rel="stylesheet" charset="UTF-8" href="./index_files/translateelement.css"></head>
+    <body>
+        <div class="row">
+            <div id="logo"></div>
+        </div>
+        <div class="row">
+            <div id="nav-holder" class="two columns">
+                <nav gumby-fixed="top">
+                    <h3><font><font>Índice</font></font></h3>
+                    <ul>
+                        <li><a href="index.html#requirements"><strong><font><font>requerimentos do sistema</font></font></strong></a></li>
+                        <li><a href="index.html#installation"><strong><font><font>Instalação</font></font></strong></a>
+                            <ul>
+                                <li><a href="index.html#installation"><font><font>Geral</font></font></a></li>
+                                <li><a href="index.html#uninstallation"><font><font>desinstalação</font></font></a></li>
+                                <li><a href="index.html#wp-installation"><font><font>WordPress</font></font></a></li>
+                                <li><a href="index.html#joomla-installation"><font><font>Joomla</font></font></a></li>
+                                <li><a href="index.html#drupal-installation"><font><font>Drupal</font></font></a></li>
+                                <li><a href="index.html#opencart-installation"><font><font>OpenCart</font></font></a></li>
+                            </ul>
+                        </li>
+                        
+                        <li><a href="index.html#usage"><strong><font><font>Uso</font></font></strong></a>
+                            <ul>
+                                <li><a href="index.html#usage-login"><font><font>o login</font></font></a></li>
+                                <li><a href="index.html#usage-logout"><font><font>Sair</font></font></a></li>
+                                <li><a href="index.html#usage-global"><font><font>Configurações globais</font></font></a></li>
+                                <li><a href="index.html#usage-themes"><font><font>temas Widget</font></font></a></li>
+                                <li><a href="index.html#usage-widget-preview"><font><font>visualização do widget</font></font></a></li>
+                                <li><a href="index.html#usage-operators"><font><font>operadores</font></font></a></li>
+                                <li><a href="index.html#usage-chatting"><font><font>Conversando</font></font></a></li>
+                                <li><a href="index.html#guest-chatting"><font><font>conversas de Clientes</font></font></a></li>
+                                <li><a href="index.html#usage-canned"><font><font>mensagens enlatadas</font></font></a></li>
+                                <li><a href="index.html#usage-history"><font><font>História</font></font></a></li>
+                                <li><a href="index.html#usage-avatars"><font><font>Adicionando mais avatares predefinidos</font></font></a></li>
+                                <li><a href="index.html#usage-sound"><font><font>Adicionando mais sons de notificação de mensagem</font></font></a></li>
+                                <li><a href="index.html#usage-jsapi"><font><font>JavaScript API</font></font></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="ten columns">
+                <ul>
+                    <li>
+                        <h2 id="requirements"><font><font>requerimentos do sistema</font></font></h2>
+                        
+                        <p><font><font>
+                            Para que o aplicativo funcione corretamente instale em servidor linux com cPanel, versão PHP 5.4+, banco de dados MySQL. </font><font>Browsers começando com IE8 e mais novos são suportados.
+                        </font></font></p>
+                    </li>
+
+                    <li>
+                        <h2 id="installation"><font><font>Instalação</font></font></h2>
+                        
+                        <p><font><font>
+                            Depois de baixar todos os arquivos, copiar e fazer o upload do </font></font><code><font><font>chat</font></font></code><font><font> diretório em qualquer lugar no seu servidor web (por exemplo, para o diretório raiz do seu site). </font></font><code><font><font>Livechat</font></font></code><font><font> pasta contém todos os arquivos necessários (configuração, scripts, dados e recursos).
+                        </font></font></p>
+                        <p><font><font>
+                            Se você estiver usando um sistema de CMS ou software shoping (como WordPress, Joomla, etc.) copiar esta pasta para o diretório raiz do seu CMS.
+                        </font></font></p>
+
+                        <h3><font><font>permissões de arquivo de atualização</font></font></h3>
+                        
+                        <span class="label success"><font><font>Esta seção só é importante se o seu servidor web não permite PHP para acessar os arquivos / editar por padrão.</font></font></span>
+                        
+                        <p><font><font>
+                            Os seguintes arquivos / diretórios deve ser tanto legível e gravável pelo PHP:
+                            </font></font></p><ul>
+                                <li><font><font>Toda </font></font><code><font><font>data /</font></font></code><font><font> pasta,</font></font></li>
+                                <li><font><font>Toda </font></font><code><font><font>/ upload</font></font></code><font><font> pasta + suas subpastas,</font></font></li>
+                                <li><code><font><font>/php/config/app.settings.php</font></font></code><font><font> arquivo,</font></font></li>
+                                <li><code><font><font>/php/config/parameters.php</font></font></code><font><font> arquivo.</font></font></li>
+                            </ul>
+                        <p></p>
+                        
+                        <h3><font><font>assistente de instalação executar</font></font></h3>
+                        <p><font><font>Visite o seguinte URL:</font></font></p>
+                        <p><code><font><font>&lt;Your_web_server_url&gt; / &lt;livechat_dir&gt; /php/app.php</font></font></code></p>
+                        <p><font><font>Quando a aplicação for acessada pela primeira vez, você será redirecionado para o assistente de instalação:</font></font></p>
+                        <div class="browser">
+                            <img src="./index_files/install-1.png">
+                        </div>
+                        <p><font><font>Após a instrução, clique </font></font><code><font><font>Vamos!</font></font></code><font><font> . </font><font>A página a seguir será exibida ao lado:</font></font></p>
+                        <div class="browser">
+                            <img src="./index_files/install-2.png">
+                        </div>
+                        <p><font><font>Preencha o formulário com as suas configurações e clique </font></font><code><font><font>em Salvar</font></font></code><font><font> . </font><font>A próxima página será:</font></font></p>
+                        <div class="browser">
+                            <img src="./index_files/install-3.png">
+                        </div>
+                        <p><font><font>Aqui, verifique seus dados apresentados e confirme usando a </font></font><code><font><font>Instalar</font></font></code><font><font> botão. </font><font>Se tudo correr bem, a última página será exibida:</font></font></p>
+                        <div class="browser">
+                            <img src="./index_files/install-4.png">
+                        </div>
+                        
+                        <h3><font><font>Adicionar widget de chat à sua página web</font></font></h3>
+                        
+                        <p><font><font>
+                            Agora você está pronto para incorporar o Widget do bate-papo em seu site. </font><font>Para fazer isso você tem que adicionar uma linha especial de código em seu principal documento HTML / layout. </font><font>Para obter este trecho de código voltar ao painel de administração ( </font></font><code><font><font>&lt;your_web_server_url&gt; / &lt;livechat_dir&gt; /php/app.php?login</font></font></code><font><font> ) e selecione </font></font><code><font><font>Obter roteiro Widget</font></font></code><font><font> no menu superior direito. </font><font>Isto irá mostrar uma janela com o código para copiar mensagem:
+                        </font></font></p>
+                        
+                        <div class="browser">
+                            <img src="./index_files/embedding-code.png">
+                        </div>
+                        
+                        <p><font><font>
+                            Cole-o na </font></font><code><font><font>cabeça</font></font></code><font><font> secção do seu site ou no final do </font></font><code><font><font>corpo</font></font></code><font><font> tag e isso é tudo. </font><font>Este script irá carregar todas as dependências e adicione o widget de chat no canto inferior direito do seu site. </font><font>Agora, quando você visitar o site, ele deve mostrar o widget com formulário de contato exibido nele (como há operadores estão disponíveis on-line até o momento).
+                        </font></font></p>
+                    </li>
+                    <li>
+                        <h2 id="uninstallation"><font><font>desinstalação</font></font></h2>
+
+                        <p><font><font>
+                            Você pode desinstalar o aplicativo do servidor utilizando a página de desinstalação. </font><font>Basta selecionar </font></font><code><font><font>Desinstalar</font></font></code><font><font> a partir do menu superior direito. </font><font>A página a seguir será exibida:
+                        </font></font></p>
+                        <div class="browser">
+                            <img src="./index_files/uninstall-1.png">
+                        </div>
+                        <p><font><font>Depois de clicar no </font></font><code><font><font>Desinstalar</font></font></code><font><font> botão, o aplicativo será desinstalado e você verá a seguinte mensagem:</font></font></p>
+                        <div class="browser">
+                            <img src="./index_files/uninstall-2.png">
+                        </div>
+                    </li>
+                    <li>
+                        <h2 id="wp-installation"><font><font>Instalação WordPress</font></font></h2>
+                        
+                        <p><font><font>
+                            Para instalar o bate-papo em um site WordPress siga os mesmos passos descritos acima para a instalação de costume. </font><font>Apenas lembre-se, no último passo que o widget de bate-papo deve ser embutido no arquivo de layout principal (por isso é disponível em qualquer seção do site). </font><font>Para fazer esta tarefa simples para você, você pode usar a </font></font><code><font><font>página por adicionar a cabeça</font></font></code><font><font> WordPress plugin ( </font></font><a href="http://wordpress.org/plugins/per-page-add-to/" target="_blank"><font><font>http://wordpress.org/plugins/per-page-add-to/</font></font></a><font><font> ), que permite inserir conteúdo adicional à </font></font><code><font><font>cabeça</font></font></code><font><font> seção de seu site. </font><font>Depois de instalar o plugin e ligá-lo, vá até </font></font><code><font><font>Configurações / Adicionar &lt;head&gt; para todas as páginas</font></font></code><font><font> em você WP painel de administração, cole o widget incorporação trecho (olhar para a seção anterior para ver onde obtê-lo a partir) na área de texto e clique </font></font><code><font><font>em Salvar</font></font></code><font><font> . </font><font>Da próxima vez que você visitar qualquer página de seu site WordPress, o widget deve ser visível no canto inferior direito.
+                        </font></font></p>
+                    </li>
+                    <li>
+                        <h2 id="joomla-installation"><font><font>Instalação Joomla</font></font></h2>
+                        
+                        <p><font><font>
+                            Para instalar o bate-papo em um site Joomla siga os mesmos passos descritos acima para a instalação de costume. </font><font>Apenas lembre-se, no último passo que o widget de bate-papo deve ser embutido no arquivo de layout principal (por isso é disponível em qualquer seção do site). </font><font>Para fazer esta tarefa simples para você, você pode usar o </font></font><code><font><font>EasyScript</font></font></code><font><font> plugin do Joomla </font><font>que lhe permite inserir conteúdo adicional para a </font><code><font>cabeça</font></code><font> secção do seu site. </font><font>Depois de instalar o plugin e ligá-lo, ir para </font><code><font>Extensions / Plugin Gerente</font></code><font> , selecione EasyScript plug-in da lista in, exibir o </font><code><font>Outro</font></code><font> guia em suas configurações e colar o widget incorporação trecho (olhar para a seção anterior para ver onde obtê-lo a partir de ) na </font><code><font>itens adicionais</font></code><font> área de texto. </font><font>Finalmente clique no </font><code><font>Salvar</font></code><font> botão. </font><font>Da próxima vez que você visitar qualquer página de seu site Joomla, o widget deve ser visível no canto inferior direito.
+                        </font></font><a href="http://extensions.joomla.org/extensions/core-enhancements/coding-a-scripts-integration/head-code/11936" target="_blank"><font></font></a><font></font><code><font></font></code><font></font><code><font></font></code><font></font><code><font></font></code><font></font><code><font></font></code><font></font><code><font></font></code><font></font></p>
+                    </li>
+                    <li>
+                        <h2 id="drupal-installation"><font><font>Instalação do Drupal</font></font></h2>
+
+                        <p><font><font>
+                            Para instalar o bate-papo em um site Drupal siga os mesmos passos descritos acima para a instalação de costume. </font><font>Apenas lembre-se, no último passo que o widget de bate-papo deve ser embutido no arquivo de layout principal (por isso é disponível em qualquer seção do site). </font><font>Para fazer esta tarefa simples para você, você pode usar o </font></font><code><font><font>Add to Head</font></font></code><font><font> módulo Drupal ( </font></font><a href="https://drupal.org/project/add_to_head" target="_blank"><font><font>https://drupal.org/project/add_to_head</font></font></a><font><font> ), que permite inserir conteúdo adicional na </font></font><code><font><font>cabeça</font></font></code><font><font> secção do seu site. </font><font>Depois de instalar o módulo e ligá-lo, ir para </font></font><code><font><font>Módulos</font></font></code><font><font> , encontre Adicionar ao módulo da cabeça na lista e clique em </font></font><code><font><font>Configurar</font></font></code><font><font> ao lado dele. </font><font>Na janela que exibe escolha
+                             </font></font><code><font><font>Adicionar outro perfil</font></font></code><font><font> . </font><font>O formulário será exibido. </font><font>Nomear a entrada no entanto você gostaria de e colar o widget incorporação trecho (olhar para a seção anterior para ver onde obtê-lo a partir) no </font></font><code><font><font>Código de</font></font></code><font><font> área de texto. </font><font>Você também pode preencher o caminho incluído / excluído usando o </font></font><code><font><font>Caminhos</font></font></code><font><font> 
+                            área de texto e definir o script para ser colocado na secção da cabeça ou scripts usando o </font></font><code><font><font>Âmbito da adição de</font></font></code><font><font> botões de rádio (seção Scripts provavelmente vai ser a melhor opção). </font><font>Finalmente clique no </font></font><code><font><font>Salvar</font></font></code><font><font> botão. </font><font>Da próxima vez que você visitar qualquer página de seu site Drupal, o widget deve ser visível no canto inferior direito.
+                        </font></font></p>
+                    </li>
+                    <li>
+                        <h2 id="opencart-installation"><font><font>Instalação OpenCart</font></font></h2>
+
+                        <p><font><font>
+                            Para instalar o bate-papo em um site Drupal siga os mesmos passos descritos acima para a instalação de costume. </font><font>Apenas lembre-se, no último passo que o widget de bate-papo deve ser incorporado no layout principal (por isso é disponível em qualquer seção do site). </font><font>Para fazer esta tarefa simples para você, você pode usar o </font></font><code><font><font>Add to Head</font></font></code><font><font> módulo OpenCart ( </font></font><a href="http://www.opencart.com/index.php?route=extension/extension/info&amp;extension_id=11171" target="_blank"><font><font>http://www.opencart.com/index.php?route=extension/extension/info&amp;extension_id=11171</font></font></a><font><font> ), que permite inserir conteúdo adicional à </font></font><code><font><font>cabeça</font></font></code><font><font> secção do seu site. </font><font>Depois de instalar o módulo e ligá-lo, ir para </font></font><code><font><font>Extensions / Módulos</font></font></code><font><font> , encontre Adicionar ao módulo da cabeça na lista e clique em </font></font><code><font><font>Editar</font></font></code><font><font> ao lado dele. </font><font>Na página que exibe clique
+                             </font></font><code><font><font>em Adicionar módulo</font></font></code><font><font> para criar uma entrada de arquivo. </font><font>O formulário será exibido. </font><font>Selecione o </font></font><code><font><font>Javascript (js)</font></font></code><font><font> no </font></font><code><font><font>tipo de arquivo</font></font></code><font><font> de entrada e e pasta </font></font><b><font><font>de arquivo parte do caminho</font></font></b><font><font> 
+                            do widget incorporação trecho (olhar para a seção anterior para ver onde obtê-lo a partir de) para o </font></font><code><font><font>Caminho do arquivo</font></font></code><font><font> de entrada de texto. </font><font>A </font></font><b><font><font>parte caminho do arquivo</font></font></b><font><font> significa que você só deve usar a incorporação trecho </font></font><code><font><font>src</font></font></code><font><font> valor do atributo aqui (e não o todo Widget snippet).
+                        </font></font></p>
+                        <p><font><font>
+                            Por exemplo, se o fragmento se parece com isso:
+                        </font></font></p>
+                        <pre><font><font>&lt;Script type = "text / javascript" src = "http:? //example.domain/livechat/php/app.php Widget-Init.js"&gt; &lt;/ script&gt;</font></font></pre>
+                        <p><font><font>
+                            Você só deve copiar o </font></font><code><font><font>http: //example.domain/livechat/php/app.php widget-Init.js?</font></font></code><font><font> Texto e usá-lo no </font></font><code><font><font>Adicionar ao Chefe</font></font></code><font><font> de configuração.
+                        </font></font></p>
+                        <p><font><font>
+                            Depois de adicionar a primeira entrada no módulo, repita o processo de adicionar entradas adicionais para o maior número de seções do site que você gostaria que o widget apareça diante. </font><font>Primeiro adicione a entrada como descrito anteriormente e depois selecionar outro tipo de página do </font></font><code><font><font>layout</font></font></code><font><font> 
+                            de entrada. </font><font>Adicione quantas entradas como há tipos de layout disponíveis (para o widget está presente em todos os lugares).
+                        </font></font></p>
+                        <p><font><font>
+                            Finalmente clique no </font></font><code><font><font>Salvar</font></font></code><font><font> botão. </font><font>Da próxima vez que visitar páginas mencionadas do seu site OpenCart, o widget deve ser visível no canto inferior direito.
+                        </font></font></p>
+                    </li>
+                    <!--
+                    <li>
+                        <h2 id="concrete5-installation">Concrete5 Installation</h2>
+
+                        <p>
+                            To install the chat on a Concrete5 website follow the same steps described above for usual installation. Only remember that the
+                            chat widget should be embedded in your main layout. To add the widget to a page in Concrete5, login as admin visit any page and
+                            select <code>Properties</code> from the <code>Edit</code> menu. In the window that shows up select <code>Custom Attributes</code>
+                            tab and add a <code>Header Extra Content</code> attribute. In the text area of the attribute paste the widget embedding snippet
+                            (look at the previous section to see where to get it from) into the <code>Code</code> text area and click <code>Save</code>.
+                            Next time you visit any page of your Drupal site, the widget should be visible in its bottom right corner.
+                        </p>
+                    </li>
+                    -->
+                    <li>
+                        <h2 id="usage"><font><font>Uso</font></font></h2>
+
+                        <p><font><font>
+                            Existem 3 tipos de usuários na aplicação: admin, operadores e convidados. </font><font>Admin é o usuário que pode executar a instalação (un), alterar as configurações globais, gerenciar operadores e navegar conversando história, mas não é permitido para conversar. </font><font>Os operadores podem conversar com visitantes e uma vez que, pelo menos, um único operador efetua login, widget de chat não irá exibir o formulário de contato não mais - formulário de login convidado será exibida. </font><font>Os operadores também estão autorizados a mudar os seus dados de perfil e procurar o histórico de conversas. </font><font>Os clientes são os visitantes do seu site que fazer login através do widget de bate-papo e conversar com os operadores.
+                        </font></font></p>
+                        
+                        <h3 id="usage-login"><font><font>o login</font></font></h3>
+                        
+                        <p><font><font>
+                            Para acessar o bate-papo sempre usar o </font></font><code><font><font>&lt;your_web_server_url&gt; / &lt;livechat_dir&gt; /php/app.php?login</font></font></code><font><font> caminho tanto para conta de administrador e as contas das operadoras. </font><font>Para uso conta admin </font></font><code><font><font>administrador</font></font></code><font><font> (ou outra, se você mudou o nome padrão no assistente de instalação) como o login e para os operadores usam seus endereços de e-mail como o login.
+                        </font></font></p>
+                        
+                        <h3 id="usage-logout"><font><font>Sair</font></font></h3>
+                        
+                        <p><font><font>
+                            Para sair da sessão do bate-papo abrir o menu superior direito e clique no </font></font><code><font><font>Sair</font></font></code><font><font> item.
+                        </font></font></p>
+                        
+                        <h3 id="usage-global"><font><font>Configurações globais</font></font></h3>
+                        
+                        <div class="browser">
+                            <img src="./index_files/global-settings.png">
+                        </div>
+                        
+                        <p><font><font>
+                            Para alterar log configurações do aplicativo usando a conta de administrador e vá para a seção de configurações usando o ícone de chave inglesa no lado esquerdo. </font><font>Um formulário com múltiplas opções de configuração será exibido, onde você pode atualizar opções, tais como: cores, contato de e-mail, mensagens e etiquetas traduções, esconder quando o recurso off-line, novo som mensagem e conexões máximo permitido. </font><font>Enquanto a maioria das configurações são auto-explicativas, os dois seguintes exigir um pouco de esclarecimento:
+                        </font></font></p>
+                        
+                        <ul style="list-style: circle;">
+                            <li><code><font><font>Esconder em modo offline</font></font></code><font><font> - verificando esta opção fará com que o widget de chat para não ser mostrado em caso nenhum operador está disponível on-line.</font></font></li>
+                            <li><code><font><font>Mostrar Widget automaticamente</font></font></code><font><font> - define se o widget deve ser aberto automaticamente após determinado tempo (sem o visitante clicar nele).</font></font></li>
+                            <li><code><font><font>Mostrar Widget automaticamente depois (segundos)</font></font></code><font><font> - especifica o número de segundos após o qual widget deve ser aberto automaticamente.</font></font></li>
+                            <li><code><font><font>Versão móvel breakpoint</font></font></code><font><font> - Este é contendo largura da página do widget em pixels abaixo do qual a versão móvel do widget é usado. </font><font>Em outras palavras - se contendo página é menor do que esse valor, widget padrão será oculto e sua versão móvel será usado.</font></font></li>
+                            <li>
+                                <code><font><font>Máximo de conexões</font></font></code><font><font> - essa opção especifica o número de bate-papos máximos de hóspedes abertos simultaneamente. </font><font>Por exemplo, se o valor é de 10 a 10 visitantes será capaz de conversar com os operadores, ao mesmo tempo. </font><font>Esse recurso pode ajudar a reduzir o consumo de energia do seu servidor ou ajustar o número máximo de chats com base em quantas conversas simultâneas você pode manipular. </font><font>Os hóspedes que visitam sua página enquanto o limite for atendida será apresentado com a vista formulário de contato em vez da janela de conversação. </font><font>Depois convidados atualmente conversando deixar o bate-papo, os novos visitantes será capaz de se conectar.
+                            </font></font></li>
+                        </ul>
+                        
+                        <p><font><font>Esta secção só está disponível se conectado como o usuário admin.</font></font></p>
+                        
+                        <h3 id="usage-themes"><font><font>temas Widget</font></font></h3>
+                        
+                        <div class="browser">
+                            <img src="./index_files/themes.png">
+                        </div>
+                        
+                        <p><font><font>
+                            Aqui, você pode mudar o tema visual do widget conversando. </font><font>Ele será atualizado imediatamente.
+                        </font></font></p>
+                        
+                        <h3 id="usage-widget-preview"><font><font>visualização do widget</font></font></h3>
+                        
+                        <p><font><font>
+                            Operadores e administrador pode visualizar o widget a conversar a qualquer momento, clicando no </font></font><code><font><font>pré-visualização Widget</font></font></code><font><font> item no menu superior direito (ou ícone de olho no menu à esquerda). </font><font>Isso resultará em abrir a página a seguir em uma nova aba do navegador. </font><font>Lá, você pode testar aparência e comportamento do widget:
+                        </font></font></p>
+
+                        <div class="browser">
+                            <img src="./index_files/widget-preview.png">
+                        </div>
+
+                        <h3 id="usage-operators"><font><font>operadores</font></font></h3>
+                        
+                        <div class="browser">
+                            <img src="./index_files/operators.png">
+                        </div>
+                        
+                        <p><font><font>
+                            Ao lado da guia de configurações é a guia operadores, que é usado para gerenciar todos os operadores. </font><font>Você pode adicionar, remover ou modificar os usuários aqui. </font><font>Se você estiver conectado como um operador, você pode mudar a sua própria informações de perfil. </font><font>Além disso, as senhas podem ser repostas aqui e avatares perfil selecionado / carregado.
+                        </font></font></p>
+                        
+                        <p>
+                            <span class="label primary"><font><font>
+                                Antes você está autorizado a conversar com os visitantes, você tem que criar pelo menos uma conta de operador e log em usá-lo.
+                            </font></font></span><font><font> 
+                            
+                            Para criar um movimento operador </font></font><code><font><font>Operadores</font></font></code><font><font> guia e clique </font></font><code><font><font>Adicionar novo</font></font></code><font><font> botão na parte superior. </font><font>O seguinte formulário será mostrado:
+                        </font></font></p>
+                        
+                        <div class="browser">
+                            <img src="./index_files/operators-new.png">
+                        </div>
+                        
+                        <p><font><font>
+                            Preencha o formulário com os dados de operadores e clique </font></font><code><font><font>em Salvar</font></font></code><font><font> . </font><font>O endereço de e-mail especificado aqui será usado para efetuar login com a conta do operador. </font></font><span class="label primary"><font><font>Importante:</font></font></span><font><font> a </font></font><code><font><font>senha</font></font></code><font><font> de campo tem de ser preenchido com pelo menos 6 caracteres.
+                        </font></font></p>
+                        
+                        <h3 id="usage-chatting"><font><font>Conversando</font></font></h3>
+                        
+                        <p>
+                            <span class="label primary"><font><font>
+                                Antes você está autorizado a conversar com os visitantes, você tem que criar pelo menos uma conta de operador e log em usá-lo.
+                            </font></font></span><font><font> 
+                            
+                            Para mais informações, vá para </font></font><a href="index.html#usage-operators"><font><font>Operadores</font></font></a><font><font> seção.
+                        </font></font></p>
+                        
+                        <div class="browser">
+                            <img src="./index_files/operator-talks.png">
+                        </div>
+                        
+                        <p>
+                            <span class="label primary"><font><font>
+                                Para os seus visitantes para ser capaz de bate-papo você tem que estar conectado como um operador. </font><font>Caso contrário, os convidados só vai ver um retorno formulário de contato e não o formulário de login chat.
+                            </font></font></span>
+                        </p>
+                        
+                        <p><font><font>
+                            A seção padrão que é exibido após o login como um operador é a visão de chat. </font><font>Todos os usuários on-line são listados à esquerda aqui ( </font></font><code><font><font>usuários online</font></font></code><font><font> e </font></font><code><font><font>operadores online</font></font></code><font><font> listas). </font><font>Se você mover o cursor do mouse sobre o nome de um usuário, você verá uma pequena janela com informações sobre o usuário. </font><font>Você pode esperar por incomming mensagens ou clique no nome do usuário e iniciar uma conversa se. </font><font>Quando novas mensagens chegam operadores são notificados com som, bem como piscar ícones de envelope ao lado dos cabeçalhos de guia. </font><font>Depois de abrir guia do usuário, você pode digitar suas mensagens para a entrada na parte inferior ( </font></font><code><font><font>Escreva a sua mensagem</font></font></code><font><font> ) e pressione enter para enviá-los. </font><font>Você também pode usar emoticons, clicando em seu símbolo à direita da entrada.
+                        </font></font></p>
+                        
+                        <p>
+                            <span class="label primary"><font><font>
+                                Apenas um operador está autorizado a falar com um convidado, ao mesmo tempo. </font><font>No caso de um segundo operador tenta enviar mensagens para o convidado dado, a mensagem do sistema será exibida, informando o operador que o hóspede já é tratado por outra pessoa.
+                            </font></font></span>
+                        </p>
+                        
+                        <p><font><font>
+                            Ao falar com um convidado, em cima de vista do bate-papo há um status ao vivo do convidado página é atualmente visitando.
+                        </font></font></p>
+                        
+                        <p><font><font>
+                            Conversas entre dois operadores também são possíveis - apenas clicar no nome do operador na lista de operadores on-line.
+                        </font></font></p>
+
+                        <h3 id="guest-chatting"><font><font>conversas de Clientes</font></font></h3>
+                        
+                        <img src="./index_files/guest-talks.png">
+                        
+                        <p><font><font>
+                            conversando Guest funciona exatamente da mesma maneira. </font><font>Além disso, durante a conversa, os hóspedes podem acessar um menu de configurações usando o ícone de chave inglesa na barra de título para atualizar as configurações, como o uso de emoticons, uso de notificação sonora, auto rolagem da caixa de chat e auto exibição do chat.
+                        </font></font></p>
+                        
+                        <img src="./index_files/guest-settings.png">
+                        
+                        <p><font><font>
+                            Se um convidado atualiza a página web, que detém o widget de bate-papo, ele ainda é permitido falar usando a mesma sessão e todas as mensagens anteriores são exibidas no chat.
+                        </font></font></p>
+
+                        <h3 id="usage-canned"><font><font>mensagens enlatadas</font></font></h3>
+                        
+                        <p><font><font>
+                            O aplicativo permite que você crie uma lista de mensagens que podem ser rapidamente colados em conversa com um visitante. </font><font>Você pode gerenciá-los dentro das </font></font><code><font><font>mensagens predefinidas</font></font></code><font><font> (somente quando conectado como o usuário administrador).
+                        </font></font></p>
+                        <p>
+                            <span class="label primary"><font><font>Importante:</font></font></span><font><font> Você pode usar espaços reservados dinâmicos dentro do corpo da mensagem enlatada. </font><font>Os seguintes espaços reservados estão disponíveis:
+
+                            </font></font></p><ul>
+                                <li><code><font><font>{name}</font></font></code><font><font> - quando o operador utiliza a mensagem será substituir por seu nome real</font></font></li>
+                                <li><code><font><font>{mail}</font></font></code><font><font> - quando o operador utiliza a mensagem será substituir pelo seu endereço de e-mail real</font></font></li>
+                            </ul>
+                        <p></p>
+                        
+                        <div class="browser">
+                            <img src="./index_files/canned-messages.png">
+                        </div>
+
+                        <p><font><font>
+                            Para usar as mensagens predefinidas, clique no </font></font><code><font><font>Canned</font></font></code><font><font> botão (à esquerda do campo de entrada de mensagem) quando se fala de um convidado. </font><font>A seguinte janela pop-up será exibida:
+                        </font></font></p>
+
+                        <div class="browser">
+                            <img src="./index_files/canned-messages-use.png">
+                        </div>
+
+                        <p><font><font>Primeiro, selecione uma das mensagens clicando em seu texto. </font><font>Em seguida, pressione </font></font><code><font><font>Insert</font></font></code><font><font> e a mensagem será colocada dentro de sua entrada mensagem.</font></font></p>
+                        
+                        <h3 id="usage-history"><font><font>História</font></font></h3>
+                        
+                        <div class="browser">
+                            <img src="./index_files/history.png">
+                        </div>
+                        
+                        <p><font><font>
+                            seção Histórico permite tanto administração e os operadores a navegar e pesquisar através de todo o histórico de conversas. </font><font>Deixando todas as entradas de filtragem vazios irá resultar em todas as negociações serem listados. </font><font>Para mostrar uma determinada conversa depois que ele é encontrado, clique no item na lista de resultados sob a forma de pesquisa e a conversa será exibida no lado direito. </font><font>Na opinião da conversa você também pode ver os seus participantes informações de perfil e data da conversa de início / término e tempo.
+                        </font></font></p>
+                        <p>
+                            <span class="label primary"><font><font>Importante:</font></font></span><font><font> Se você observar a aplicação abrandar, você pode tentar limpar o histórico de mensagens, clicando em </font></font><code><font><font>Limpar histórico</font></font></code><font><font> .
+                        </font></font></p>
+                        
+                        <h3 id="usage-avatars"><font><font>Adicionando mais avatares predefinidos</font></font></h3>
+                        
+                        <p><font><font>
+                            Além de upload de avatares personalizados, um conjunto predefinido de imagens Avatar está disponível que tanto convidado e os operadores podem facilmente usar. </font><font>Se você gostaria de modificar as imagens disponíveis como avatares pré-definidos, você só precisa modificar o conteúdo do
+                             </font></font><code><font><font>carregamento / default-avatares</font></font></code><font><font> diretório. </font><font>A aplicação repete automaticamente através de todos os avatares desta pasta e os torna disponíveis no chat.
+                        </font></font></p>
+                        
+                        <h3 id="usage-sound"><font><font>Adicionando mais sons de notificação de mensagem</font></font></h3>
+                        
+                        <p><font><font>
+                            Notificação nova mensagem sons reproduzidos quando novas mensagens chegarem pode ser encontrado em </font></font><code><font><font>áudio</font></font></code><font><font> diretório. </font><font>Se você gostaria de usar sons adicionais para esse fim, basta copiar os arquivos MP3 para este diretório. </font><font>O aplicativo irá carregar automaticamente todos os novos arquivos e permitir-lhe escolher um deles usando </font></font><code><font><font>som Nova mensagem</font></font></code><font><font> menu drop-down no painel do administrador </font></font><code><font><font>Definições</font></font></code><font><font> guia.
+                        </font></font></p>
+
+                        <h3 id="usage-jsapi"><font><font>JavaScript API</font></font></h3>
+                        
+                        <p><font><font>
+                            O Widget expõe uma API JavaScript para a página que contém. </font><font>Desta forma, você pode interagir com o widget usando seu próprio código JavaScript. </font><font>A API pode ser acessado através do </font></font><code><font><font>phpLiveChat</font></font></code><font><font> objeto global.
+                        </font></font></p><p>
+                            <span class="label primary"><font><font>Importante: o código JavaScript personalizado tem de ser colocado depois do script incorporação widget - caso contrário, phpLiveChat objeto global não será acessível.</font></font></span>
+                        </p>
+                        <p><font><font>
+                            Aqui está um exemplo de código que apresenta todos os recursos disponíveis:
+                        </font></font></p>
+
+<pre><font><font>// Mostra o widget</font></font><font></font><font><font>
+phpLiveChat.show ();</font></font><font></font>
+<font></font><font><font>
+// Ligue o modo de tela cheia</font></font><font></font><font><font>
+phpLiveChat.fullscreenOn ();</font></font><font></font>
+<font></font><font><font>
+// Desligue o modo de tela cheia</font></font><font></font><font><font>
+phpLiveChat.fullscreenOff ();</font></font><font></font>
+<font></font><font><font>
+// Ocultar o Widget</font></font><font></font><font><font>
+phpLiveChat.hide ();</font></font><font></font>
+<font></font><font><font>
+// Fim do bate-papo</font></font><font></font><font><font>
+phpLiveChat.endChat ();</font></font><font></font>
+<font></font><font><font>
+// Enviar uma mensagem ao operador</font></font><font></font><font><font>
+phpLiveChat.sendMessage ( 'Olá :)!');</font></font><font></font>
+<font></font><font><font>
+// Executar código personalizado quando os operadores estão online</font></font><font></font><font><font>
+phpLiveChat.onoperatorsonline = function ()</font></font><font></font><font><font>
+{</font></font><font></font><font><font>
+    alert ( 'Os operadores estão online');</font></font><font></font><font><font>
+};</font></font><font></font>
+<font></font><font><font>
+// Executar código personalizado quando os operadores estão offline</font></font><font></font><font><font>
+phpLiveChat.onoperatorsoffline = function ()</font></font><font></font><font><font>
+{</font></font><font></font><font><font>
+    alert ( 'Os operadores estão offline');</font></font><font></font><font><font>
+};</font></font><font></font>
+<font></font><font><font>
+// Executar código personalizado quando uma nova mensagem é recebida</font></font><font></font><font><font>
+phpLiveChat.onmessage = function ()</font></font><font></font><font><font>
+{</font></font><font></font><font><font>
+    alert ( 'Nova mensagem acabado de chegar');</font></font><font></font><font><font>
+};</font></font><font></font>
+<font></font><font><font>
+// Executar código personalizado quando um logs de visitante para o bate-papo</font></font><font></font><font><font>
+phpLiveChat.onloginsuccess = function ()</font></font><font></font><font><font>
+{</font></font><font></font><font><font>
+    alert ( 'Visitor começou o bate-papo');</font></font><font></font><font><font>
+};</font></font><font></font>
+<font></font><font><font>
+// Executar código personalizado quando um visitante termina o bate-papo</font></font><font></font><font><font>
+phpLiveChat.onlogoutsuccess = function ()</font></font><font></font><font><font>
+{</font></font><font></font><font><font>
+    alert ( 'Visitor terminou o bate-papo');</font></font><font></font><font><font>
+};</font></font><font></font>
+<font></font><font><font>
+// Executar código personalizado quando o operador está digitando</font></font><font></font><font><font>
+phpLiveChat.onoperatortyping = function ()</font></font><font></font><font><font>
+{</font></font><font></font><font><font>
+    alert ( 'Operador está digitando agora');</font></font><font></font><font><font>
+};</font></font><font></font>
+</pre>
+                    </li>
+                </ul>
+            </div>
+        </div><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="./index_files/translate_24dp.png" width="20" height="20"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Texto original</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Sugira uma tradução melhor</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div>
+    
+</body></html>

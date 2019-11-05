@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Configuração - Saiba mais em www.hostturbo.net</title>
+
+        <!-- Fonts -->
+
+        <?php echo $app->renderView('blocks/fonts.html'); ?>
+
+        <!-- Styles -->
+
+        <link rel="stylesheet" href="<?php echo $app->asset('css/jquery.mCustomScrollbar.css') ?>" />
+        <link rel="stylesheet" href="<?php echo $app->asset('css/framework.css') ?>" />
+        <link rel="stylesheet" href="<?php echo $app->asset('css/main.css') ?>" />
+        <link rel="stylesheet" href="<?php echo $app->asset('css/admin.css') ?>" />
+        <link rel="stylesheet" href="<?php echo $app->asset('css/bootstrap.css') ?>" />
+    </head>
+    <body class="install-wizard">
+
+        <img class="logo" src="<?php echo $app->asset('img/logo.png') ?>">
+        
+        <div class="panel">
+
+            <div class="header">Configuração</div>
+
+            <div class="content">
+                
+                <!-- Introduction -->
+                
+                <p class="intro">
+                    Bem-vindo a configuração do Chat. Antes de começar a configuração, crie um banco de dados em seu servidor de hospedagem junto a um administrador com todas permissões aprovadas. Você terá de preencher as seguintes informações durante
+                    Instalação (se você não sabe esses itens, você pode obtê-los a partir de sua empresa de hospedagem):
+
+
+                    <br><br>
+                    
+                    1. Local da instalação (geralmente localhost)<br>
+                    2. Porta do servidor (deixe padrão caso não saiba.) <br>
+                    3. Nome do banco <br>
+                    4. Nome do administrador <br>
+                    5. Senha do banco
+                    
+                    <br><br>
+                    
+                    <strong>
+                        Se o banco de dados ainda não existe, o assistente de instalação irá tentar criá-lo automaticamente para você. Em
+						alguns servidores, no entanto, essa tentativa irá falhar. Não se preocupe, você poderá criar o banco de dados manualmente usando
+                       o manual de instalação e realizar via (<i>phpMyAdmin</i>).
+                    </strong>
+                </p>
+                
+                <!-- Actions -->
+
+                <div class="row buttons">
+                    <div class="col6">
+                        <a class="btn secondary" href="<?php echo $app->path('Admin:index') ?>">
+                            <i class="icon-remove-sign icon-white"></i>
+                            Cancelar
+                        </a>
+                    </div>
+
+                    <div class="col6">
+                        <a class="btn" href="<?php echo $app->path('Install:wizard') ?>">
+                            Próximo
+                            <i class="icon-circle-arrow-right icon-white"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </body>
+</html>
